@@ -5,6 +5,8 @@
 
 
 
+- [.NET Hub](https://medium.com/dotnet-hub)
+
 
 
 ---
@@ -31,7 +33,7 @@ Implement background tasks using the new IHostedService interface.
 
 ### Reference
 
-- []()
+- [Background tasks with hosted services in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/host/hosted-services)
 - []()
 - []()
 - []()
