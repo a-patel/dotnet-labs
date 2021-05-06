@@ -23,6 +23,41 @@
 
 
 
+---
+
+
+
+## Libraries
+
+
+
+
+
+#### [Autofac](libraries/Autofac)
+
+
+#### [AutoMapper](libraries/AutoMapper)
+
+
+#### [FluentValidation](libraries/FluentValidation)
+
+
+#### [Swagger](libraries/Swagger)
+
+
+#### [Serilog](libraries/Serilog)
+
+
+#### [Hangfire](libraries/Hangfire)
+
+
+#### [MediatR](libraries/MediatR)
+
+
+#### [MiniProfiler](libraries/MiniProfiler)
+
+
+
 
 
 ---
