@@ -24,5 +24,4 @@ namespace FluentValidationExamples.Api.Infrastructure.Validators
 }
 
 
-
 // https://docs.fluentvalidation.net/en/latest/

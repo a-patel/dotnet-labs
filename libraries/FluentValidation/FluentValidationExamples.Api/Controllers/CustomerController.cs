@@ -1,4 +1,5 @@
 ﻿#region Imports
+using FluentValidationExamples.Api.Infrastructure.Validators;
 using FluentValidationExamples.Api.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -33,8 +34,26 @@ namespace FluentValidationExamples.Api.Controllers
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
+
                 // re-render the view when validation failed.
                 //return View(model);
+            }
+
+            //TODO: Save the data to the database, or some other logic.
+
+            return Ok();
+        }
+
+        // Manual validation
+        [HttpPost]
+        public IActionResult Update(CustomerModel model)
+        {
+            CustomerValidator validator = new CustomerValidator();
+            var validationResult = validator.Validate(model);
+
+            if (!validationResult.IsValid)
+            {
+                return BadRequest(validationResult.Errors);
             }
 
             //TODO: Save the data to the database, or some other logic.

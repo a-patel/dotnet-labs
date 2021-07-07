@@ -1,12 +1,12 @@
 #region Imports
 using FluentValidation.AspNetCore;
-using FluentValidationExamples.Api.Infrastructure.Validators;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using System.Reflection;
 #endregion
 
 namespace FluentValidationExamples.Api
@@ -29,7 +29,8 @@ namespace FluentValidationExamples.Api
                 {
                     fv.ImplicitlyValidateChildProperties = true;
                     fv.ImplicitlyValidateRootCollectionElements = true;
-                    fv.RegisterValidatorsFromAssemblyContaining<CustomerValidator>();
+                    fv.RegisterValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+                    //fv.RegisterValidatorsFromAssemblyContaining<Startup>(); // Other way to register validators
                 });
 
             services.AddControllers();

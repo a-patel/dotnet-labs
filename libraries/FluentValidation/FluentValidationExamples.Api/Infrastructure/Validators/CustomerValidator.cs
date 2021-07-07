@@ -11,9 +11,9 @@ namespace FluentValidationExamples.Api.Infrastructure.Validators
         //public CustomerValidator(IValidator<AddressModel> addressValidator)
         {
             RuleFor(x => x.Name).NotNull().NotEmpty();
+            RuleFor(x => x.Name).Length(20, 250);
             RuleFor(x => x.PhoneNumber).NotEmpty().WithMessage("Please specify a phone number.");
             RuleFor(x => x.Age).InclusiveBetween(18, 60);
-            RuleFor(x => x.Name).Length(20, 250);
 
             // Complex Properties
             //RuleFor(x => x.Address).SetValidator(addressValidator);

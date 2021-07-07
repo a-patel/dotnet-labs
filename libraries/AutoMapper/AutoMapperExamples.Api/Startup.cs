@@ -21,25 +21,19 @@ namespace AutoMapperExamples.Api
             Configuration = configuration;
         }
 
-
         public void ConfigureServices(IServiceCollection services)
         {
-            //var configuration = new MapperConfiguration(cfg =>
-            //{
-            //    cfg.AddProfile<CustomerAutoMapperProfile>();
-            //    //cfg.CreateMap<AddressModel, Address>();
-            //    //cfg.AddMaps(myAssembly)
-            //});
-
-            // Way-1: 
+            // Way-1: Register Profiles and/or Mapping manually.
             services.AddAutoMapper(cfg =>
             {
                 cfg.AddProfile<CustomerAutoMapperProfile>();
                 //cfg.CreateMap<AddressModel, Address>(); // other option
             });
 
-            // Way-2: 
+
+            // Way-2: Register using Assembly. Scan an assembly for components.
             //services.AddAutoMapper(typeof(Startup));
+
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
