@@ -33,7 +33,9 @@ namespace MediatRExamples.Api
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MediatR Examples Api", Version = "v1" });
             });
 
+            // Register MediatR services
             services.AddMediatR(Assembly.GetExecutingAssembly());
+
             // Register from multiple assembly.
             //services.AddMediatR(Assembly.GetExecutingAssembly(), typeof(ICustomerService).Assembly);
         }
