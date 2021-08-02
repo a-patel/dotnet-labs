@@ -1,16 +1,12 @@
 #region Imports
 using MediatR;
-using MediatRExamples.Api.Application.Customers.Commands;
-using MediatRExamples.Api.Application.Customers.Queries;
 using MediatRExamples.Api.Data;
-using MediatRExamples.Api.Model;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using System.Collections.Generic;
 using System.Reflection;
 #endregion
 
@@ -40,12 +36,6 @@ namespace MediatRExamples.Api
             services.AddMediatR(Assembly.GetExecutingAssembly());
             // Register from multiple assembly.
             //services.AddMediatR(Assembly.GetExecutingAssembly(), typeof(ICustomerService).Assembly);
-
-
-            //services.AddTransient<IRequestHandler<CreateCustomerCommand, Customer>, CreateCustomerCommandHandler>();
-            //services.AddTransient<IRequestHandler<UpdateCustomerCommand, Customer>, UpdateCustomerCommandHandler>();
-            //services.AddTransient<IRequestHandler<GetCustomerByIdQuery, Customer>, GetCustomerByIdQueryHandler>();
-            //services.AddTransient<IRequestHandler<GetCustomersQuery, List<Customer>>, GetCustomersQueryHandler>();
         }
 
 
