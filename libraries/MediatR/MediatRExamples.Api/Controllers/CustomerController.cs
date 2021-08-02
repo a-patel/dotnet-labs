@@ -35,7 +35,7 @@ namespace MediatRExamples.Api.Controllers
 
         #region Methods
 
-        [HttpGet]
+        [HttpGet("all")]
         public async Task<IActionResult> GetAll()
         {
             var result = await _mediator.Send(new GetCustomersQuery());
@@ -43,24 +43,26 @@ namespace MediatRExamples.Api.Controllers
             return Ok(result);
         }
 
-        [HttpGet]
+
+        [HttpGet("{id}")]
         public async Task<IActionResult> Get([FromRoute] Guid id)
         {
             var result = await _mediator.Send(new GetCustomerByIdQuery
             {
                 Id = id
             });
-            
+
             return Ok(result);
         }
 
-        [HttpPost]
+
+        [HttpPost("add")]
         public async Task<IActionResult> Add([FromBody] CreateCustomerModel createCustomerModel)
         {
             //TODO: Use AutoMapper for mappings
 
-            var customer = new Customer() 
-            { 
+            var customer = new Customer()
+            {
                 FirstName = createCustomerModel.FirstName,
                 LastName = createCustomerModel.LastName,
                 Birthday = createCustomerModel.Birthday,
@@ -77,7 +79,7 @@ namespace MediatRExamples.Api.Controllers
         }
 
 
-        [HttpPost]
+        [HttpPut("update")]
         public async Task<IActionResult> Update([FromBody] UpdateCustomerModel updateCustomerModel)
         {
             //TODO: Use AutoMapper for mappings
@@ -110,6 +112,7 @@ namespace MediatRExamples.Api.Controllers
 
             return Ok(result);
         }
+
         #endregion
     }
 }

@@ -29,6 +29,8 @@ namespace MediatRExamples.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -40,12 +42,10 @@ namespace MediatRExamples.Api
             //services.AddMediatR(Assembly.GetExecutingAssembly(), typeof(ICustomerService).Assembly);
 
 
-            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
-
-            services.AddTransient<IRequestHandler<CreateCustomerCommand, Customer>, CreateCustomerCommandHandler>();
-            services.AddTransient<IRequestHandler<UpdateCustomerCommand, Customer>, UpdateCustomerCommandHandler>();
-            services.AddTransient<IRequestHandler<GetCustomerByIdQuery, Customer>, GetCustomerByIdQueryHandler>();
-            services.AddTransient<IRequestHandler<GetCustomersQuery, List<Customer>>, GetCustomersQueryHandler>();
+            //services.AddTransient<IRequestHandler<CreateCustomerCommand, Customer>, CreateCustomerCommandHandler>();
+            //services.AddTransient<IRequestHandler<UpdateCustomerCommand, Customer>, UpdateCustomerCommandHandler>();
+            //services.AddTransient<IRequestHandler<GetCustomerByIdQuery, Customer>, GetCustomerByIdQueryHandler>();
+            //services.AddTransient<IRequestHandler<GetCustomersQuery, List<Customer>>, GetCustomersQueryHandler>();
         }
 
 
