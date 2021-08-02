@@ -32,11 +32,10 @@ namespace FluentValidationExamples.Api
                     fv.RegisterValidatorsFromAssembly(Assembly.GetExecutingAssembly());
                     //fv.RegisterValidatorsFromAssemblyContaining<Startup>(); // Other way to register validators
                 });
-
-            services.AddControllers();
+			
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "FluentValidationExamples.Api", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "FluentValidation Examples Api", Version = "v1" });
             });
         }
 
@@ -49,7 +48,7 @@ namespace FluentValidationExamples.Api
             }
 
             app.UseSwagger();
-            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "FluentValidationExamples.Api v1"));
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "FluentValidation Examples Api v1"));
 
 
             app.UseHttpsRedirection();
