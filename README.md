@@ -1,7 +1,7 @@
 
 # .NET Labs
 
-> .NET Labs: Samples .NET 5.0 projects.
+> .NET Labs: Samples .NET 7.x projects.
 
 
 
