@@ -34,7 +34,7 @@ namespace MediatRExamples.Api
             });
 
             // Register MediatR services
-            services.AddMediatR(typeof(Startup));
+            services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Startup).Assembly));
 
             // Way-2
             //services.AddMediatR(Assembly.GetExecutingAssembly());
