@@ -24,15 +24,27 @@ namespace FluentValidationExamples.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers()
-                .AddFluentValidation(fv =>
-                {
-                    fv.ImplicitlyValidateChildProperties = true;
-                    fv.ImplicitlyValidateRootCollectionElements = true;
-                    fv.RegisterValidatorsFromAssembly(Assembly.GetExecutingAssembly());
-                    //fv.RegisterValidatorsFromAssemblyContaining<Startup>(); // Other way to register validators
-                });
-			
+            services.AddControllers();
+
+            // version 11.1 and newer
+            services.AddFluentValidationAutoValidation(config =>
+            {
+                config.ImplicitlyValidateChildProperties = true;
+            });
+
+            // In older versions, call services.AddFluentValidation() instead,
+            // which is the equivalent of calling services.AddFluentValidationAutoValidation().AddFluentValidationClientsideAdapters()
+            services.AddFluentValidationAutoValidation().AddFluentValidationClientsideAdapters();
+
+            //// Obsolute
+            //services.AddFluentValidation(fv =>
+            //    {
+            //        fv.ImplicitlyValidateChildProperties = true;
+            //        fv.ImplicitlyValidateRootCollectionElements = true;
+            //        fv.RegisterValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+            //        //fv.RegisterValidatorsFromAssemblyContaining<Startup>(); // Other way to register validators
+            //    });
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "FluentValidation Examples Api", Version = "v1" });
